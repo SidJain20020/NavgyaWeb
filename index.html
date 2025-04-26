@@ -1,0 +1,1940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navgya - Elegant Ladies Fashion</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #ff6b6b;
+            --secondary-color: #546de5;
+            --text-color: #333;
+            --light-color: #f8f9fa;
+            --dark-color: #343a40;
+            --accent-color: #ff9a8b;
+            --transition: all 0.3s ease-in-out;
+        }
+
+        body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.content-wrapper {
+    flex: 1 0 auto; /* This prevents content from shrinking */
+}
+
+/* Fix for the product detail page specifically */
+#productDetailPage {
+    flex: 1;
+    display: flex !important;
+    flex-direction: column;
+}
+
+#productDetailPage .container {
+    flex: 1;
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-detail {
+    flex: 1;
+}
+
+footer {
+    flex-shrink: 0; /* Prevents footer from shrinking */
+    width: 100%;
+    margin-top: auto; /* Pushes footer to bottom when content is short */
+}
+
+        h1, h2, h3, h4 {
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            font-weight: normal;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--text-color);
+            font-weight: 500;
+            position: relative;
+        }
+
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover:after,
+        nav ul li a.active:after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+    height: 100vh;
+    width: 100%;
+    background-image: url("HomePage.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: 0;
+    padding-top: 70px;
+}
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: black;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+       
+
+        /* About Us */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-img {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        /* Collections */
+        .collections {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 10px 0;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .collection-card {
+            position: relative;
+            height: 400px;
+            min-width: 300px;
+            flex: 0 0 auto;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer; /* Added cursor pointer to show it's clickable */
+        }
+
+        .collection-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .collection-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+           
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            color: white;
+        }
+
+        .collection-title {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: black;
+    background: rgba(255, 255, 255, 0.7); /* less opacity */
+    text-align: center;
+    border-radius: 12px;
+    padding: 8px 12px; /* optional: adds spacing inside */
+}
+
+
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+        }
+
+        /* Products Page */
+        .filter-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .filter-options {
+            display: flex;
+            gap: 15px;
+        }
+
+        .filter-btn {
+            background: transparent;
+            border: 1px solid #ddd;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .search-box {
+            position: relative;
+        }
+
+        .search-box input {
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            width: 250px;
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: none;
+            color: #777;
+            cursor: pointer;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        
+/* Product Card Standardization */
+.product-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: var(--transition);
+    height: 100%;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.product-img {
+    position: relative;
+    width: 100%;
+    height: 300px; /* Fixed height for all product images */
+    overflow: hidden;
+}
+
+.product-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* This will maintain aspect ratio while covering the area */
+}
+
+.product-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-category {
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.product-title {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    min-height: 40px; /* Ensure consistent height for titles */
+}
+
+.product-price {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.product-card .btn {
+    margin-top: auto; /* Push button to bottom of card */
+}
+
+        /* Product Detail */
+        .product-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .product-detail-img {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .product-detail-info h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .product-detail-category {
+            color: var(--secondary-color);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .product-detail-price {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .product-detail-desc {
+            margin-bottom: 30px;
+        }
+
+        .size-options,
+        .color-options {
+            margin-bottom: 20px;
+        }
+
+        .size-options h4,
+        .color-options h4 {
+            margin-bottom: 10px;
+        }
+
+        .size-btns,
+        .color-btns {
+            display: flex;
+            gap: 10px;
+        }
+
+        .size-btn,
+        .color-btn {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .size-btn:hover,
+        .size-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .color-btn {
+            border-radius: 50%;
+        }
+
+       /* Update Quantity Selector Styling */
+.quantity-selector {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.quantity-btn {
+    width: 40px;
+    height: 40px;
+    background: var(--light-color);
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: var(--transition);
+    user-select: none;
+}
+
+.quantity-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.quantity-input {
+    width: 60px;
+    height: 40px;
+    border: 1px solid #ddd;
+    text-align: center;
+    margin: 0 8px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Remove spinner buttons from quantity input */
+.quantity-input::-webkit-outer-spin-button,
+.quantity-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.quantity-input[type=number] {
+    -moz-appearance: textfield;
+}
+
+/* Quantity label */
+.quantity-label {
+    font-weight: 500;
+    margin-bottom: 10px;
+    display: block;
+}
+
+        .action-btns {
+            display: flex;
+            gap: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: white;
+            padding: 80px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #ccc;
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-col p {
+            color: #ccc;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+        }
+
+        .newsletter {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .newsletter input {
+            padding: 10px;
+            border: none;
+            flex: 1;
+        }
+
+        .newsletter button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        /* Gallery Modal Styles */
+.gallery-modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.gallery-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  animation: zoom 0.3s ease-in-out;
+}
+
+@keyframes zoom {
+  from {transform: scale(0.1)}
+  to {transform: scale(1)}
+}
+
+.gallery-image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.close-gallery {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-gallery:hover {
+  color: var(--primary-color);
+}
+
+
+.back-btn {
+    background-color: var(--light-color);
+    color: var(--text-color);
+    border: 1px solid #ddd;
+    transition: var(--transition);
+}
+
+.back-btn:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.back-button-container {
+    grid-column: 1 / -1;
+    width: 100%;
+}
+
+
+/* Carousel Styles */
+.product-carousel {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: none;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    display: block;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: #f9f9f9;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #333;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.prev-btn {
+    left: 10px;
+}
+
+.next-btn {
+    right: 10px;
+}
+
+.carousel-indicators {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.carousel-dot.active {
+    background-color: var(--primary-color);
+}
+
+.carousel-dot:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* Update Product Detail Layout */
+.product-detail {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+}
+
+@media (min-width: 768px) {
+    .product-detail {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .back-button-container {
+        grid-column: span 2;
+    }
+}
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container,
+            .product-detail {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .collections {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                background: white;
+                height: calc(100vh - 80px);
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            nav.active {
+                left: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 30px;
+            }
+
+            nav ul li {
+                margin: 15px 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .collections {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .search-box {
+                width: 100%;
+                margin-top: 15px;
+            }
+
+            .search-box input {
+                width: 100%;
+            }
+        }
+
+        .page {
+            display: none;
+            padding-top: 100px;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        #productDetailPage .container {
+            padding-top: 100px;
+        }
+
+        .wishlist-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.product-actions {
+    display: flex;
+    flex-direction: column;
+}
+
+#emptyWishlist {
+    padding: 50px 0;
+}
+
+#emptyWishlist p {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="content-wrapper">
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo" data-page="homePage">
+                <img src="Logo.png" alt="Navgya Logo" style="height: 100px;">
+              </a>
+              
+            <div class="hamburger" id="hamburger">&#9776;</div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#" class="nav-link active" data-page="homePage">Home</a></li>
+                    <li><a href="#" class="nav-link" data-page="aboutPage">About Us</a></li>
+                    <li><a href="#" class="nav-link" data-page="productsPage">Products</a></li>
+                    <li><a href="#" class="nav-link" data-page="contactPage">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Home Page -->
+    <div id="homePage" class="page active">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Elegance Redefined</h1>
+                <p>Discover the latest collection of premium women's clothing for every occasion.</p>
+                <a href="#" class="btn" data-page="productsPage">Shop Now</a>
+            </div>
+        </section>
+
+      
+
+        <section class="section" style="background-color: #f9f9f9;">
+            <div class="container">
+                <h2 class="section-title">Collections</h2>
+                <p class="section-subtitle">Explore our latest fashion collections</p>
+                <div class="collections">
+                    <div class="collection-card" data-id="101">
+                        <img src="Product 1(1).jpeg" alt="Silk Chinon self design fabric">
+                        <div class="collection-overlay">
+                            <h3 class="collection-title">Silk Chinon self design fabric</h3>
+                         
+                        </div>
+                    </div>
+                    <div class="collection-card" data-id="102">
+                        <img src="Product 2(1).jpeg" alt="Rayon Linen kurta pant set">
+                        <div class="collection-overlay">
+                            <h3 class="collection-title">Rayon Linen kurta pant set</h3>
+                        
+                        </div>
+                    </div>
+                    <div class="collection-card" data-id="103">
+                        <img src="Product 3(1).jpeg" alt="Hand Block batik print cotton kurta pant set">
+                        <div class="collection-overlay">
+                            <h3 class="collection-title">Hand Block batik print cotton kurta pant set</h3>
+                           
+                        </div>
+                    </div>
+
+                    <div class="collection-card" data-id="104">
+                        <img src="Product 4(1).jpeg" alt="Hand block with organic color print cotton kurta pant set">
+                        <div class="collection-overlay">
+                            <h3 class="collection-title">Hand block with organic color print cotton kurta pant set</h3>
+                           
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div id="aboutPage" class="page">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">About Navgya</h2>
+                <p class="section-subtitle">Our journey in the world of fashion</p>
+                <div class="about-content">
+                    <div class="about-img">
+                        <img src="AboutUs.png" alt="About Navgya">
+                    </div>
+                    <div class="about-text">
+                        <h2>Our Story</h2>
+                        <p>Navgya was born out of a passion for creating elegant, timeless clothing for women who value quality and style. Founded in 2018, our brand has grown from a small boutique to a recognized name in the fashion industry.</p>
+                        <p>We believe that clothing should be more than just something you wear – it should be an expression of your personality, a boost to your confidence, and a testament to your unique style.</p>
+                        <p>Our design team works tirelessly to create collections that blend contemporary trends with classic elements, ensuring that each piece is both fashionable and timeless.</p>
+                        <h2>Our Mission</h2>
+                        <p>At Navgya, our mission is to empower women through fashion that combines quality, comfort, and style. We are committed to using sustainable practices and ethical production methods to create clothing that not only looks good but feels good to wear and buy.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="background-color: #f9f9f9;">
+            <div class="container">
+                <h2 class="section-title">Our Values</h2>
+                <div class="featured-products">
+                    <div >
+                        
+                        <div >
+                            <h3>Quality</h3>
+                            <p>We never compromise on the quality of our products. From the fabrics we select to the finishing touches, every detail matters.</p>
+                        </div>
+                    </div>
+                    <div >
+                        
+                        <div >
+                            <h3>Sustainability</h3>
+                            <p>We're committed to reducing our environmental impact through responsible sourcing, ethical manufacturing, and eco-friendly packaging.</p>
+                        </div>
+                    </div>
+                    <div >
+                        
+                        <div >
+                            <h3>Innovation</h3>
+                            <p>We constantly challenge ourselves to innovate in design, materials, and processes to create clothing that meets the evolving needs of modern women.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Add Wishlist Page structure -->
+<div id="wishlistPage" class="page">
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">My Wishlist</h2>
+            <p class="section-subtitle">Your favorite items saved for later</p>
+            
+            <div id="wishlistItems" class="products-grid">
+                <!-- Wishlist items will be loaded here via JavaScript -->
+            </div>
+            
+            <div id="emptyWishlist" class="text-center" style="display: none;">
+                <p>Your wishlist is empty.</p>
+                <a href="#" class="btn" data-page="productsPage">Browse Products</a>
+            </div>
+        </div>
+    </section>
+</div>
+<div id="productsPage" class="page">
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Our Products</h2>
+            <p class="section-subtitle">Discover our wide range of high-quality clothing</p>
+            
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here via JavaScript -->
+            </div>
+        </div>
+    </section>
+</div>
+
+    <!-- Contact Page -->
+    <div id="contactPage" class="page">
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-subtitle">We'd love to hear from you</p>
+                
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <p>Have questions about our products or need assistance with your order? Our customer service team is here to help.</p>
+                        <p><strong>Address:</strong> Bengali Square, Indore</p>
+                        <p><strong>Phone:</strong> +91 87709 96600</p>
+                       
+                        <p><strong>Business Hours:</strong> Monday to Friday, 9am to 6pm</p>
+                        
+                        <h3>Follow Us</h3>
+                        
+                    </div>
+                    
+                    <div class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Product Detail Page -->
+    <div id="productDetailPage" class="page">
+        <div class="container">
+            <div class="product-detail" id="productDetail">
+                <!-- Product details will be loaded here via JavaScript -->
+            </div>
+        </div>
+    </div>
+</div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Navgya</h4>
+                    <p>Navgya is a premium ladies clothing brand dedicated to creating elegant, high-quality fashion for the modern woman.</p>
+                   
+                </div>
+               
+                <div class="footer-col">
+                    <h4>Customer Care</h4>
+                    <ul>
+                        
+                        <li><a href="#">Wishlist</a></li>
+                        <li><a href="#">Returns & Exchanges</a></li>
+                        <li><a href="#">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to our newsletter to receive updates on new arrivals and special promotions.</p>
+                    <div class="newsletter">
+                        <input type="email" placeholder="Your email address">
+                        <button>Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Navgya. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+
+
+// Add Wishlist to Nav Menu - Add this to your existing script
+function addWishlistToNav() {
+    const navUl = document.querySelector('nav ul');
+    const wishlistLi = document.createElement('li');
+    wishlistLi.innerHTML = `<a href="#" class="nav-link" data-page="wishlistPage">Wishlist <span id="wishlistCount" class="wishlist-count">0</span></a>`;
+    navUl.appendChild(wishlistLi);
+}
+
+// Wishlist functionality
+let wishlist = [];
+
+// Initialize wishlist from localStorage
+function initWishlist() {
+    // Add wishlist to navigation
+    addWishlistToNav();
+    
+    // Load wishlist from localStorage
+    const savedWishlist = localStorage.getItem('navgyaWishlist');
+    if (savedWishlist) {
+        wishlist = JSON.parse(savedWishlist);
+        updateWishlistCount();
+    }
+}
+
+// Add to wishlist
+function addToWishlist(productId) {
+    // Check if product is already in wishlist
+    if (!wishlist.includes(productId)) {
+        wishlist.push(productId);
+        saveWishlist();
+        showToast('Product added to wishlist');
+    } else {
+        showToast('Product is already in your wishlist');
+    }
+}
+
+// Remove from wishlist
+function removeFromWishlist(productId) {
+    const index = wishlist.indexOf(productId);
+    if (index > -1) {
+        wishlist.splice(index, 1);
+        saveWishlist();
+        showToast('Product removed from wishlist');
+        // Refresh wishlist page if we're on it
+        if (document.getElementById('wishlistPage').classList.contains('active')) {
+            loadWishlistItems();
+        }
+    }
+}
+
+// Save wishlist to localStorage
+function saveWishlist() {
+    localStorage.setItem('navgyaWishlist', JSON.stringify(wishlist));
+    updateWishlistCount();
+}
+
+// Update wishlist count in the navigation
+function updateWishlistCount() {
+    const wishlistCount = document.getElementById('wishlistCount');
+    if (wishlistCount) {
+        wishlistCount.textContent = wishlist.length;
+    }
+}
+
+// Load wishlist items
+function loadWishlistItems() {
+    const wishlistItemsContainer = document.getElementById('wishlistItems');
+    const emptyWishlistMessage = document.getElementById('emptyWishlist');
+    
+    // Clear container
+    wishlistItemsContainer.innerHTML = '';
+    
+    if (wishlist.length === 0) {
+        wishlistItemsContainer.style.display = 'none';
+        emptyWishlistMessage.style.display = 'block';
+        return;
+    }
+    
+    wishlistItemsContainer.style.display = 'grid';
+    emptyWishlistMessage.style.display = 'none';
+    
+    // Add wishlist items to container
+    wishlist.forEach(productId => {
+        const product = products.find(p => p.id == productId);
+        if (product) {
+            wishlistItemsContainer.innerHTML += `
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">${product.category}</span>
+                        <h3 class="product-title">${product.name}</h3>
+                        <span class="product-price">${product.price}</span>
+                        <div class="product-actions">
+                            <a href="#" class="btn view-product" data-id="${product.id}">View Details</a>
+                            <a href="#" class="btn btn-outline remove-from-wishlist" data-id="${product.id}" style="margin-top: 10px;">Remove</a>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+    });
+    
+    // Add event listeners for remove buttons
+    document.querySelectorAll('.remove-from-wishlist').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            const productId = btn.getAttribute('data-id');
+            removeFromWishlist(productId);
+        });
+    });
+}
+
+// Create toast notification
+function createToastContainer() {
+    const toastContainer = document.createElement('div');
+    toastContainer.id = 'toastContainer';
+    toastContainer.style.cssText = `
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+    `;
+    document.body.appendChild(toastContainer);
+}
+
+// Show toast notification
+function showToast(message) {
+    const toastContainer = document.getElementById('toastContainer') || createToastContainer();
+    
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = message;
+    toast.style.cssText = `
+        background-color: var(--primary-color);
+        color: white;
+        padding: 12px 20px;
+        border-radius: 4px;
+        margin-top: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        animation: fadeIn 0.3s, fadeOut 0.3s 2.7s;
+        opacity: 0;
+    `;
+    
+    // Add animation keyframes
+    if (!document.getElementById('toastAnimations')) {
+        const style = document.createElement('style');
+        style.id = 'toastAnimations';
+        style.innerHTML = `
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(20px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes fadeOut {
+                from { opacity: 1; transform: translateY(0); }
+                to { opacity: 0; transform: translateY(-20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    }
+    
+    toastContainer.appendChild(toast);
+    
+    // Trigger animation start
+    setTimeout(() => {
+        toast.style.opacity = '1';
+    }, 10);
+    
+    // Remove toast after 3 seconds
+    setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => {
+            toast.remove();
+        }, 300);
+    }, 3000);
+}
+
+// Update product detail page to include the wishlist button functionality
+const originalShowProductDetails = showProductDetails;
+showProductDetails = function(productId) {
+    originalShowProductDetails(productId);
+    
+    // Update "Add to Wishlist" button 
+    const wishlistBtn = document.querySelector('.btn-outline');
+    if (wishlistBtn) {
+        // Check if product is in wishlist
+        const isInWishlist = wishlist.includes(parseInt(productId));
+        
+        wishlistBtn.innerHTML = isInWishlist 
+            ? 'Remove from Wishlist' 
+            : 'Add to Wishlist';
+            
+        // Remove old event listener by cloning the button
+        const newWishlistBtn = wishlistBtn.cloneNode(true);
+        wishlistBtn.parentNode.replaceChild(newWishlistBtn, wishlistBtn);
+        
+        // Add new event listener
+        newWishlistBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            if (wishlist.includes(parseInt(productId))) {
+                removeFromWishlist(productId);
+                this.innerHTML = 'Add to Wishlist';
+            } else {
+                addToWishlist(productId);
+                this.innerHTML = 'Remove from Wishlist';
+            }
+        });
+    }
+};
+
+// Initialize wishlist on page load
+document.addEventListener('DOMContentLoaded', function() {
+    initWishlist();
+    
+    // Add navigation event for wishlist page
+    document.addEventListener('click', function(e) {
+        if (e.target.getAttribute('data-page') === 'wishlistPage' || 
+            (e.target.parentElement && e.target.parentElement.getAttribute('data-page') === 'wishlistPage')) {
+            e.preventDefault();
+            navigateTo('wishlistPage');
+            loadWishlistItems();
+        }
+    });
+    
+    // Add toast container
+    createToastContainer();
+});
+
+    // Define navigateTo function at the global scope first
+    function navigateTo(pageId) {
+    // Get all pages
+    const pages = document.querySelectorAll('.page');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    // Hide all pages
+    pages.forEach(page => {
+        page.classList.remove('active');
+    });
+    
+    // Show the selected page
+    document.getElementById(pageId).classList.add('active');
+    
+    // Update active nav link
+    navLinks.forEach(link => {
+        if (link.getAttribute('data-page') === pageId) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
+
+    if (pageId !== 'productDetailPage') {
+        const productDetail = document.getElementById('productDetail');
+        if (productDetail) {
+            productDetail.innerHTML = '';
+        }
+    }
+        
+        // Scroll to top when changing pages
+        window.scrollTo(0, 0);
+        
+        // Close mobile menu if open
+        const nav = document.getElementById('nav');
+        if (nav.classList.contains('active')) {
+            nav.classList.remove('active');
+        }
+    }
+
+   
+    
+    // DOM Elements
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const pages = document.querySelectorAll('.page');
+    const featuredProductsContainer = document.getElementById('featuredProducts');
+    const productsGrid = document.getElementById('productsGrid');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const contactForm = document.getElementById('contactForm');
+    
+    // Create the modal HTML structure and add it to the page
+    const galleryModal = document.createElement('div');
+    galleryModal.className = 'gallery-modal';
+    galleryModal.innerHTML = `
+      <div class="gallery-content">
+        <span class="close-gallery">&times;</span>
+        <img class="gallery-image" src="" alt="Full screen product image">
+      </div>
+    `;
+    document.body.appendChild(galleryModal);
+    
+    // Product data (in a real application, this would come from a database/API)
+    // Your custom product data
+    const products = [
+        {
+            id: 1,
+            name: "Silk Chinon Self Design Fabric",
+            category: "Kurta Set",
+            price: "₹999",
+            image: "Product 1(1).jpeg", // Use the path to your product image
+            images: ["Product 1(1).jpeg", "Product 1(2).jpeg", "Product 1(3).jpeg", "Product 1(4).jpeg"],
+            description: "Luxurious silk chinon with elegant self-design pattern. Perfect for creating flowing dresses, blouses, and scarves. The fabric has a soft texture and beautiful drape."
+        },
+        {
+            id: 2,
+            name: "Rayon Linen Kurta Pant Set",
+            category: "Kurta Set ",
+            price: "₹1499",
+            image: "Product 2(1).jpeg", // Use the path to your product image
+            images: ["Product 2(1).jpeg", "Product 2(2).jpeg", "Product 2(3).jpeg"],
+            description: "Comfortable and stylish rayon linen kurta pant set. The breathable fabric makes it perfect for casual and semi-formal occasions. Available in multiple sizes."
+        },
+        {
+            id: 3,
+            name: "Hand Block Batik Print Cotton Kurta Pant Set",
+            category: "Kurta Set",
+            price: "₹1199",
+            image: "Product 3(1).jpeg", // Use the path to your product image
+            images: ["Product 3(1).jpeg", "Product 3(2).jpeg", "Product 3(3).jpeg", "Product 3(4).jpeg"],
+            description: "Traditional hand block batik printed cotton kurta with matching pants. Each piece is uniquely crafted with attention to detail and authentic artisanal techniques."
+        },
+        {
+            id: 4,
+            name: "Hand Block with Organic Color Print Cotton Kurta Pant Set",
+            category: "Kurta Set",
+            price: "₹799",
+            image: "Product 4(1).jpeg", // Use the path to your product image
+            images: ["Product 4(1).jpeg", "Product 4(2).jpeg", "Product 4(3).jpeg"],
+            description: "Eco-friendly cotton kurta pant set featuring hand block printing with organic colors. Sustainable fashion that combines traditional craftsmanship with modern design."
+        }
+        // Add more of your products as needed
+    ];
+    
+    // Mobile Menu Toggle
+    hamburger.addEventListener('click', () => {
+        nav.classList.toggle('active');
+    });
+    
+    // Navigation Event Listeners
+    document.addEventListener('click', (e) => {
+        const target = e.target;
+        
+        // Handle navigation links
+        if (target.hasAttribute('data-page') || target.parentElement.hasAttribute('data-page')) {
+            e.preventDefault();
+            const pageId = target.getAttribute('data-page') || target.parentElement.getAttribute('data-page');
+            navigateTo(pageId);
+            
+            // Close mobile menu if open
+            if (nav.classList.contains('active')) {
+                nav.classList.remove('active');
+            }
+        }
+        
+        // Handle product details navigation
+        if (target.classList.contains('view-product') || 
+            target.parentElement.classList.contains('view-product')) {
+            e.preventDefault();
+            const productId = target.getAttribute('data-id') || 
+                           target.parentElement.getAttribute('data-id');
+            showProductDetails(productId);
+        }
+    });
+    
+    // Load Featured Products
+    function loadFeaturedProducts() {
+        // Get 4 random products to feature
+        const shuffled = [...products].sort(() => 0.5 - Math.random());
+        const featured = shuffled.slice(0, 4);
+        
+        // Clear container
+        featuredProductsContainer.innerHTML = '';
+        
+        // Add products to container
+        featured.forEach(product => {
+            featuredProductsContainer.innerHTML += `
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">${product.category}</span>
+                        <h3 class="product-title">${product.name}</h3>
+                        <span class="product-price">${product.price}</span>
+                        <a href="#" class="btn view-product" data-id="${product.id}">View Details</a>
+                    </div>
+                </div>
+            `;
+        });
+    }
+    
+    // Load All Products
+    function loadProducts(category = 'all') {
+        // Filter products by category if needed
+        const filteredProducts = category === 'all' ? 
+            products : products.filter(product => product.category === category);
+        
+        // Clear container
+        productsGrid.innerHTML = '';
+        
+        // Add products to container
+        filteredProducts.forEach(product => {
+            productsGrid.innerHTML += `
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="${product.image}" alt="${product.name}">
+                    </div>
+                    <div class="product-info">
+                        <span class="product-category">${product.category}</span>
+                        <h3 class="product-title">${product.name}</h3>
+                        <span class="product-price">${product.price}</span>
+                        <a href="#" class="btn view-product" data-id="${product.id}">View Details</a>
+                    </div>
+                </div>
+            `;
+        });
+    }
+    
+    // Setup carousel functionality
+    function setupCarousel() {
+        const slides = document.querySelectorAll('.carousel-slide');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const dots = document.querySelectorAll('.carousel-dot');
+        let currentSlide = 0;
+        
+        // Function to show a specific slide
+        function showSlide(index) {
+            if (index >= slides.length) {
+                currentSlide = 0;
+            } else if (index < 0) {
+                currentSlide = slides.length - 1;
+            } else {
+                currentSlide = index;
+            }
+            
+            // Hide all slides
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+            
+            // Show current slide
+            slides[currentSlide].classList.add('active');
+            
+            // Update dots
+            dots.forEach(dot => {
+                dot.classList.remove('active');
+            });
+            dots[currentSlide].classList.add('active');
+        }
+        
+        // Next button click
+        nextBtn.addEventListener('click', () => {
+            showSlide(currentSlide + 1);
+        });
+        
+        // Previous button click
+        prevBtn.addEventListener('click', () => {
+            showSlide(currentSlide - 1);
+        });
+        
+        // Dot indicators click
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const slideIndex = parseInt(dot.getAttribute('data-index'));
+                showSlide(slideIndex);
+            });
+        });
+    }
+    
+    // Show Product Details
+    function showProductDetails(productId) {
+        const product = products.find(p => p.id == productId);
+        
+        if (product) {
+            // Create carousel HTML
+        let carouselHTML = '';
+        let carouselIndicators = '';
+
+        // If product has multiple images, create a carousel
+        if (product.images && product.images.length > 0) {
+            // Create carousel slides
+            let slides = '';
+            product.images.forEach((img, index) => {
+                slides += `
+                    <div class="carousel-slide ${index === 0 ? 'active' : ''}" style="background-color: white;">
+                        <img src="${img}" alt="${product.name} - Image ${index + 1}" style="background-color: transparent;">
+                    </div>
+                `;
+                carouselIndicators += `
+                    <span class="carousel-dot ${index === 0 ? 'active' : ''}" data-index="${index}"></span>
+                `;
+            });
+            
+            carouselHTML = `
+                <div class="product-carousel" style="background-color: white;">
+                    <div class="carousel-container">
+                        ${slides}
+                    </div>
+                    <button class="carousel-btn prev-btn">❮</button>
+                    <button class="carousel-btn next-btn">❯</button>
+                    <div class="carousel-indicators">
+                        ${carouselIndicators}
+                    </div>
+                </div>
+            `;
+        } else {
+            // Fallback to single image if no images array
+            carouselHTML = `
+                <div class="product-detail-img">
+                    <img src="${product.image}" alt="${product.name}">
+                </div>
+            `;
+        }
+            
+            // Update product detail container
+            const productDetail = document.getElementById('productDetail');
+            productDetail.innerHTML = `
+                <div class="back-button-container" style="margin-bottom: 20px;">
+                    <button class="btn back-btn" style="display: flex; align-items: center;">
+                        <span style="margin-right: 5px;">←</span> Back to Products
+                    </button>
+                </div>
+                
+                ${carouselHTML}
+                
+                <div class="product-detail-info">
+                    <span class="product-detail-category">${product.category}</span>
+                    <h2>${product.name}</h2>
+                    <div class="product-detail-price">${product.price}</div>
+                    <div class="product-detail-desc">
+                        <p>${product.description}</p>
+                    </div>
+                    
+                    <div class="size-options">
+                        <h4>Size</h4>
+                        <div class="size-btns">
+                            <div class="size-btn">XS</div>
+                            <div class="size-btn">S</div>
+                            <div class="size-btn active">M</div>
+                            <div class="size-btn">L</div>
+                            <div class="size-btn">XL</div>
+                        </div>
+                    </div>
+                    
+                    <div class="quantity-selector">
+                        <button class="quantity-btn decrease">-</button>
+                        <input type="number" class="quantity-input" value="1" min="1">
+                        <button class="quantity-btn increase">+</button>
+                    </div>
+                    
+                    <div class="action-btns">
+                      
+                        <button class="btn btn-outline">Add to Wishlist</button>
+                    </div>
+                </div>
+            `;
+            
+            // Show product detail page
+            navigateTo('productDetailPage');
+    
+            document.querySelector('.back-btn').addEventListener('click', () => {
+                navigateTo('productsPage');
+            });
+    
+            // Setup carousel functionality if exists
+            if (product.images && product.images.length > 1) {
+                setupCarousel();
+            }
+            
+            // Add event listeners for quantity buttons
+            const decreaseBtn = document.querySelector('.decrease');
+            const increaseBtn = document.querySelector('.increase');
+            const quantityInput = document.querySelector('.quantity-input');
+            
+            decreaseBtn.addEventListener('click', () => {
+                if (quantityInput.value > 1) {
+                    quantityInput.value = parseInt(quantityInput.value) - 1;
+                }
+            });
+            
+            increaseBtn.addEventListener('click', () => {
+                quantityInput.value = parseInt(quantityInput.value) + 1;
+            });
+            
+            // Add event listeners for size buttons
+            const sizeBtns = document.querySelectorAll('.size-btn');
+            sizeBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    sizeBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                });
+            });
+            
+            // Add event listeners for color buttons
+            const colorBtns = document.querySelectorAll('.color-btn');
+            colorBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    colorBtns.forEach(b => b.style.border = 'none');
+                    btn.style.border = '2px solid #333';
+                });
+            });
+        }
+    }
+    
+    // Filter products by category
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Update active button
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            
+            // Load products for selected category
+            const category = btn.getAttribute('data-category');
+            loadProducts(category);
+        });
+    });
+    
+    // Handle contact form submission
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // In a real application, you would send this data to a server
+            alert(`Thank you for your message, ${name}! We will get back to you soon.`);
+            
+            // Reset form
+            contactForm.reset();
+        });
+    }
+    
+    // Gallery Functions
+    // Add event listeners to all collection images
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.collection-card img').forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                openGallery(this.src);
+            });
+        });
+        
+        // Initialize products
+        loadProducts();
+        
+        // Add event listeners for navigation
+        document.querySelectorAll('[data-page]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                navigateTo(this.getAttribute('data-page'));
+            });
+        });
+    });
+    
+    // Function to open the gallery
+    function openGallery(imageSrc) {
+        const galleryImage = document.querySelector('.gallery-image');
+        galleryImage.src = imageSrc;
+        galleryModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+    }
+    
+    // Close the gallery when clicking the close button or outside the image
+    document.querySelector('.close-gallery').addEventListener('click', closeGallery);
+    galleryModal.addEventListener('click', function(e) {
+        if (e.target === galleryModal) {
+            closeGallery();
+        }
+    });
+    
+    // Function to close the gallery
+    function closeGallery() {
+        galleryModal.style.display = 'none';
+        document.body.style.overflow = 'auto'; // Restore scrolling
+    }
+    
+    // Close gallery with ESC key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && galleryModal.style.display === 'flex') {
+            closeGallery();
+        }
+    });
+
+</script>
