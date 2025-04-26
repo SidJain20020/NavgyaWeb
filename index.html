@@ -410,6 +410,28 @@ footer {
             gap: 30px;
         }
 
+        @media (max-width: 768px) {
+  .collections {
+    display: block;
+    overflow-x: unset; /* stop horizontal scrolling */
+    padding: 0;
+  }
+
+  .collection-card {
+    width: 100%;
+    min-width: 100%; /* full width */
+    margin-bottom: 20px;
+    height: auto; /* Let image decide height naturally */
+  }
+
+  .collection-card img {
+    width: 100%;
+    height: auto; /* Maintain image ratio */
+    object-fit: cover;
+  }
+}
+
+
         
 /* Product Card Standardization */
 .product-card {
